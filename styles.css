@@ -52,16 +52,18 @@ i{
 }
 
 .navbar{
-  background:linear-gradient(#D5B9AC,#D5B9AC,#D5B9AC,#D5B9AC,transparent);
+  background:linear-gradient(rgba(213, 185, 172, 0.753),rgba(213, 185, 172, 0.329),transparent);
   max-width: 100%;  
-  /* border-bottom: 1px solid #212122;    */
+  /* border-bottom: 1.4px solid #212122;    */
 }
 
 a{
    color: #212122;
    font-weight: bold;
 }
-
+html{
+   scroll-behavior: smooth;
+}
 body {
    background-color:#D5B9AC;
    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -146,6 +148,7 @@ h3#author {
    text-align: center;
    /* padding: 15px; */
    text-decoration: none;
+   font-size: 130%
  }
  
  .onas{
