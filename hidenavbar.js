@@ -16,7 +16,7 @@ window.onscroll = function() {
     document.getElementById("money").style.display = 'none';
     document.getElementById("contact").style.display = 'none';
     document.getElementById("navbar").style.top = "-10px";
-    document.getElementById("navbar").style.background = "rgba(213, 185, 172)";
+    document.getElementById("navbar").style.background = "linear-gradient(rgba(213, 185, 172, 0.753),rgba(213, 185, 172, 0.329),transparent)";
   }
   prevScrollpos = currentScrollPos;
 }
