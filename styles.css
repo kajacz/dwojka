@@ -1,6 +1,8 @@
- #mymenu {
+#mymenu {
     text-transform:uppercase;    
  }
+
+ 
 
  h1{
     text-transform:uppercase;
@@ -30,10 +32,6 @@ h5{
      text-align: center;
   }
 
- ul{
-   list-style: none;
-   text-align: center;
-  }
 .prices{
    text-align: center;
 }
@@ -53,12 +51,11 @@ i{
 
 .navbar{
   /* background:linear-gradient(rgba(213, 185, 172, 0.753),rgba(213, 185, 172, 0.329),transparent); */
-  background:linear-gradient(rgba(213, 185, 172, 0.781),rgba(213, 185, 172, 0.76));
-
+  background:linear-gradient(transparent, transparent);
   max-width: 100%;  
   box-shadow: 0 10px 10px -2px rgba(97, 90, 90, 0.884);
-  /* border-bottom: 1.4px solid #212122;    */
 }
+
 
 a{
    color: #212122;
@@ -68,9 +65,10 @@ html{
    scroll-behavior: smooth;
 }
 body {
-   background-color:#D5B9AC;
+   background-color:rgb(235, 216, 208);
    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
    margin:0; padding:0;
+   
 }
 
 .zakladki{
@@ -86,6 +84,7 @@ body {
    color:rgba(70, 66, 64, 0.87);
    background-color: rgba(230, 206, 195);
    /* #D5B9AC; */
+   
 }
 
 
@@ -142,6 +141,20 @@ h3#author {
    width: 100%; /* Full width */
    transition: top 0.3s; /* Transition effect when sliding down (and up) */
  }
+ .navbar .navbar-nav {
+   /* display: inline-block;
+   float: none;
+   vertical-align: top; */
+   
+   /* width: 100%;*/
+   text-align: center; 
+
+ }
+
+ .navbar .navbar-collapse {
+   text-align: center;
+   
+ }
  
  /* Style the navbar links */
  #navbar a {
@@ -184,16 +197,16 @@ p::first-letter {
 
  .carousel-control-prev-icon
  {
-  height: 100px;
-  width: 100px; 
+  height: 60px;
+  width: 60px; 
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
 
 }
 
 .carousel-control-next-icon
 {
- height: 100px;
- width: 100px; 
+ height: 60px;
+ width: 60px; 
 
 }
 
@@ -209,8 +222,15 @@ p::first-letter {
 
 
 
- #arrow-down { position: relative; margin: 0 auto; text-align: center; animation: jump 3s infinite;}
-   i { content: '\f0a8'; font-family: 'FontAwesome'; font-size: 80px; }
+ #arrow-down { 
+    
+    position: absolute;
+    margin-top: 655px;
+    text-align: center; 
+    animation: jump 3s infinite;}
+   i { content: '\f0a8'; 
+      font-family: 'FontAwesome'; 
+      font-size: 40px; }
    i:hover { color: rgba(209, 211, 211, 0.801) }
 .fa-chevron-down{
    color: rgb(247, 243, 243); ;
@@ -220,5 +240,14 @@ p::first-letter {
 {
    align-content: center;
 }
+.carousel-content {
+   position: absolute;
+   bottom: 10%;
+   left: 45%;
+   right: 40%;
+   z-index: 20;
+   color: white;
+   text-shadow: 0 1px 2px rgba(0,0,0,.6);
+ }
 
  

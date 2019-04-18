@@ -26,13 +26,17 @@
 <header>
 	<div class="row bg-img" >					
 		<div id="carouselExampleIndicators" class="carousel slide col-sm-12" data-ride="carousel" data-interval="3000">
-			<ol class="carousel-indicators parallax">
+			<!-- <ol class="carousel-indicators">
 				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-			</ol>
+			</ol> -->
 			<div class="carousel-inner ">
 				<div class="carousel-item active">
+						<div class="carousel-content">                                
+                                Biuro Rachunkowe "DWÓJKA"
+                            </div>
+
 					<img class="d-block w-100" src="pictures/header/11.jpg" id='slide' alt="First slide">
 				</div>
 				<div class="carousel-item">
@@ -42,9 +46,12 @@
 					<img class="d-block w-100" src="pictures/header/33.jpg" id='slide'alt="Third slide">
 				</div>									
 			</div>								
+			
 			<div class="container-fluid" id="arrow-down" onclick="moveTo(680);">
 				<i class="fa fa-chevron-down"></i>
-			</div>									
+			</div>	
+
+
 			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 				<span class="sr-only">Previous</span>
@@ -56,14 +63,14 @@
 		</div>	
 
 		<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar" role="navigation"> 
-			<a class="navbar-brand" id="logoimg" href="index.html">
+			<!-- <a class="navbar-brand" id="logoimg" href="index.html">
 				<img class="d-none d-md-inline-block logoimg "  alt="Home" src="pictures/logo6.png" width="330" height="60"/>					
-			</a>			
+			</a>			 -->
 			<button class="navbar-toggler" data-toggle="collapse" data-target="#mymenu" type="button">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="navbar-collapse collapse" id="mymenu">
-				<ul class="nav navbar-nav mr-3 ml-auto" >
+				<ul class="nav navbar-nav mr-3 ml-auto" id="navig" >
 					<li class="nav-item mr-5">
 							<a onclick="moveTo(670);" class="nav-link" href="javascript:"><img src="icon/about.png" id="about" width="30" height="30"></a>
 							<a onclick="moveTo(670);" class="nav-link" href="javascript:">O nas </a>
@@ -83,27 +90,30 @@
 				</ul>
 			</div>				
 		</nav>	
+		
 	</div>			
 </header>	
 <main>				
 	<section>					 	
 		<div class="row" data-aos="flip-down">			
-			<div class="col-sm-12 container-fluid pb-4 pt-4 pl-4 pr-4 mb-5">							
-					<h1>O nas</h1>						
+									
+					<h1 class="oferta pb4 mt-5 col-sm-12 container-fluid">O nas</h1>						
 					<img class="col-sm-2 offset-sm-5 back-img" src="pictures/line.png" width="100" height="30">
-					<div class="col-sm-9 pb-4 pt-4 pl-4 pr-4 container-fluid onas">				
-						<p>
+					<div class="col-sm-6 pb-4 pt-4 pl-4 pr-4 onas">				
+						<p id="left-box">
 							Nasze Biuro ma długoletnie doświadczenie w obsłudze różnego rodzaju podmiotów gospodarczych, 
 							począwszy od tych najmniejszych - jednoosobowych, aż po duże niejednokrotnie zatrudniające ponad 100 osób. 
 							W naszym Biurze wszyscy klienci są traktowani z należytą starannością i dużą uwagą. 													
 						</p>
-						<p>
+					</div>
+					<div class="col-sm-6 pb-4 pt-4 pl-4 pr-4 onas">			
+						<p id="right-box">
 						Jeśli chcesz mieć więcej czasu na prowadzenie firmy, na przebywanie z rodziną, na ulubione zajęcia -				
 						skorzystaj z usług Biura Rachunkowego, które w przystępnej cenie i profesjonalnie zajmie się prowadzeniem Twojej rachunkowości. 
 						</p>						
 						<p class="award"> <i class="fas fa-award mr-3"></i> Katarzyna Czubała świadectwo kwalifikacyjne nr 15224/99 <i class="fas fa-award ml-3"></i></p>	
 					</div> 								
-			</div>
+			
 		</div> 			
 				
 		<div class="row" >			
