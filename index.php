@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("html").on("submit", "#contact_form", function(e) {
+          e.preventDefault();
+          $("#send_form_status")
+            .html("")
+            .hide();
+          var data = $("#contact_form").serialize();
+          $.post("/send_form.php", data, function(res) {
+            $("#send_form_status")
+              .html(res.msg)
+              .show();
+            if (res.status == 1) {
+              $("#contact_form")[0].reset();
+            }
+          });
+        });
+      });
+    </script>
+    <link rel="shortcut icon" type="image/x-icon" href="pictures/icon.png" />
+    <link
+      href="http://fonts.googleapis.com/css?family=Allura&subset=latin,latin-ext"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="http://fonts.googleapis.com/css?family=Amarante&subset=latin,latin-ext"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <meta charset="utf-8" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="parallax.js-1.5.0/parallax.js-1.5.0/parallax.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+      integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    />
+    <script type="text/javascript" src="numCounter.js"></script>
+    <script type="text/javascript" src="form.js"></script>
+    <script type="text/javascript" src="moveTo.js"></script>
+    <title>Biuro Rachunkowe - DWÓJKA Katarzyna Czubała</title>
+  </head>
+  <body>
+    <script type="text/javascript" src="slajder.js"></script>
+    <script type="text/javascript" src="hidenavbar.js"></script>
+    <header>
+      <div class="row bg-img">
+        <div
+          id="carouselExampleIndicators"
+          class="carousel slide col-sm-12"
+          data-ride="carousel"
+          data-interval="5000"
+        >
+          <div class="carousel-inner ">
+            <div class="carousel-item active">
+              <div class="carousel-content">
+                Odciążenie od prac księgowych i administracyjnych
+              </div>
+
+              <img
+                class="d-block w-100"
+                src="pictures/header/2.png"
+                id="slide"
+                alt="First slide"
+              />
+            </div>
+            <div class="carousel-item">
+              <div class="carousel-content">
+                Wieloletnie doświadczenie i miła obsługa
+              </div>
+
+              <img
+                class="d-block w-100"
+                src="pictures/header/1.png"
+                id="slide"
+                alt="Second slide"
+              />
+            </div>
+            <div class="carousel-item">
+              <div class="carousel-content">
+                Indywidualne podejście do klienta
+              </div>
+              <img
+                class="d-block w-100"
+                src="pictures/header/3.png"
+                id="slide"
+                alt="Third slide"
+              />
+            </div>
+          </div>
+          <svg
+            class="blurp--top container-fluid"
+            width="192"
+            height="61"
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 160.7 61.5"
+            enable-background="new 0 0 160.7 61.5"
+            xml:space="preserve"
+          >
+            <path
+              fill="#ebd8d0"
+              d="M80.3,61.5c0,0,22.1-2.7,43.1-5.4s41-5.4,36.6-5.4c-21.7,0-34.1-12.7-44.9-25.4S95.3,0,80.3,0c-15,0-24.1,12.7-34.9,25.4S22.3,50.8,0.6,50.8c-4.3,0-6.5,0,3.5,1.3S36.2,56.1,80.3,61.5z"
+            ></path>
+          </svg>
+          <div class="container-fluid" id="arrow-down" onclick="moveTo(680);">
+            <i class="fa fa-chevron-down"></i>
+          </div>
+
+          <a
+            class="carousel-control-prev"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-slide="prev"
+          >
+            <span
+              class="carousel-control-prev-icon ml-5 "
+              aria-hidden="true"
+            ></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a
+            class="carousel-control-next"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+
+        <nav
+          class="navbar navbar-expand-lg navbar-light fixed-top"
+          id="navbar"
+          role="navigation"
+        >
+          <button
+            class="navbar-toggler"
+            data-toggle="collapse"
+            data-target="#mymenu"
+            type="button"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="mymenu">
+            <ul class="nav navbar-nav mr-5 ml-auto" id="navig">
+              <li class="nav-item mr-5">
+                <a onclick="moveTo(670);" class="nav-link" href="javascript:"
+                  ><img src="icon/about.png" id="about" width="30" height="30"
+                /></a>
+                <a onclick="moveTo(670);" class="nav-link" href="javascript:"
+                  >O nas
+                </a>
+              </li>
+              <li class="nav-item mr-5">
+                <a onclick="moveTo(1145);" class="nav-link" href="javascript:"
+                  ><img src="icon/offer.png" id="offer" width="30" height="30"
+                /></a>
+                <a onclick="moveTo(1145);" class="nav-link" href="javascript:"
+                  >Oferta</a
+                >
+              </li>
+              <li class="nav-item mr-5">
+                <a onclick="moveTo(2330);" class="nav-link" href="javascript:"
+                  ><img src="icon/money.png" id="money" width="30" height="30"
+                /></a>
+                <a onclick="moveTo(2330);" class="nav-link" href="javascript:"
+                  >Cennik</a
+                >
+              </li>
+              <li class="nav-item mr-5">
+                <a onclick="moveTo(2810);" class="nav-link" href="javascript:"
+                  ><img
+                    src="icon/contact.png"
+                    id="contact"
+                    width="30"
+                    height="30"
+                /></a>
+                <a onclick="moveTo(2810);" class="nav-link" href="javascript:"
+                  >Kontakt</a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">
+          <img src="grafika/arrow.png" width="20" />
+        </button>
+
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+        <script src="jquery.counterup.min.js"></script>
+        <div class="row">
+          <h1 class="oferta pb4 mt-5 col-sm-12 container-fluid">O nas</h1>
+          <div class="row">
+            <img
+              class="col-sm-2 offset-sm-5 back-img"
+              src="pictures/line.png"
+              width="100"
+              height="30"
+            />
+          </div>
+
+          <div class="col-sm-1 offset-sm-6 mt-3 d-none d-md-block">
+            <div id="horizontal_line_right"></div>
+          </div>
+
+          <div class="col-sm-1 mt-3 d-none d-md-block">
+            <div id="horizontal_line_right"></div>
+          </div>
+
+          <div class="col-sm-1 mt-3 d-none d-md-block">
+            <div id="horizontal_line_right"></div>
+          </div>
+          <div class="col-sm-3"></div>
+
+          <div class="col-md-5 offset-sm-1 pb-4 pt-4 pl-4 pr-4 onas">
+            Nasze Biuro ma długoletnie doświadczenie w obsłudze różnego rodzaju
+            podmiotów gospodarczych, począwszy od tych najmniejszych -
+            jednoosobowych, aż po duże niejednokrotnie zatrudniające ponad 100
+            osób. W naszym Biurze wszyscy klienci są traktowani z należytą
+            starannością i dużą uwagą.
+          </div>
+          <div id="vertical_line" class="d-none d-md-block"></div>
+          <div class="col-md-5 pb-4 pt-5 pl-4 pr-4 onas">
+            Jeśli chcesz mieć więcej czasu na prowadzenie firmy, na przebywanie
+            z rodziną, na ulubione zajęcia - skorzystaj z usług Biura
+            Rachunkowego, które w przystępnej cenie i profesjonalnie zajmie się
+            prowadzeniem Twojej rachunkowości.
+          </div>
+          <div class="col-sm-1 offset-sm-3 d-none d-md-block">
+            <div id="horizontal_line_left"></div>
+          </div>
+          <div class="col-sm-1 d-none d-md-block">
+            <div id="horizontal_line_left"></div>
+          </div>
+          <div class="col-sm-1 d-none d-md-block">
+            <div id="horizontal_line_left"></div>
+          </div>
+          <p class="award col-sm-12 mt-3 mb-5" data-aos="flip-down">
+            <img src="grafika/medal.png" width="70" />
+            Katarzyna Czubała świadectwo kwalifikacyjne nr 15224/99
+            <img src="grafika/medal.png" width="70" />
+          </p>
+        </div>
+
+        <div class="row">
+          <h1 class="oferta pb4 col-sm-12 container-fluid">Oferta</h1>
+          <img
+            class="col-sm-2 offset-sm-5 back-img"
+            src="pictures/line.png"
+            width="100"
+            height="30"
+          />
+          <div
+            class="col-sm-12 parallax-window container-fluid pb-4 pt-4 pl-4 pr-4 mb-5 mt-3"
+            data-parallax="scroll"
+            data-z-index="1"
+            data-image-src="pictures/cegly.jpg"
+          >
+            <div
+              class="col-lg-5 col-md-7 col-sm-9 pb-4 pt-4 pl-1 pr-3 onas ofertasize onpic zakladki-content centered"
+            >
+              <div></div>
+              <ul>
+                - Pełna księgowośś
+
+                <br />
+                - Księga przychodów i rozchodów
+                <br />
+                - Ryczałt od przychodów ewidencjonowanych
+                <br />
+                - Karty podatkowe
+              </ul>
+            </div>
+          </div>
+          <div class="row ">
+            <div
+              class="onas mt-5 col-sm-12 pl-5 col-lg-4"
+              data-aos="fade-up-right"
+            >
+              <img src="grafika/watch.png" width="70" /><br /><br />
+              Wszystkie dodatkowe czynności, które towarzyszą prowadzeniu
+              działalności gospodarczej (a jest ich bez liku) również wykonuje
+              nasze Biuro. Chętnie pomagamy i doradzamy. Zawsze mamy czas dla
+              klienta i podczas ewentualnych kontaktów z Urzędami bezwzględnie
+              działamy w Jego interesie.
+            </div>
+            <div class=" onas mt-5 mb-5 col-sm-12 col-lg-4" data-aos="fade-up">
+              <img src="grafika/document.png" width="70" /><br /><br />
+
+              Oferujemy także: <br /><br />
+              - przechowywanie ksiąg rachunkowych i dokumentów księgowych,
+              <br />
+              - przygotowywanie i odbieranie korespondencji firmowej (obsługa
+              poczty, w tym elektronicznej) <br />
+              - archiwizację dokumentów, <br />
+              - w razie potrzeby udostępniamy wydzielone miejsce do pracy na
+              określoną liczbę godzin, <br />
+              - obsługę ewentualnych kontroli lub czynności sprawdzających
+              (Urząd Skarbowy, PIP, ZUS itp.) Dodatkowo współdziałamy z firmami
+              partnerskimi, które świadczą usługi finansowe w zakresie
+              pozyskiwania kredytów oraz wyszukiwania korzystnych umów
+              leasingowych.
+            </div>
+            <div
+              class=" onas mt-5 pr-5 col-sm-12 col-lg-4"
+              data-aos="fade-up-left"
+            >
+              <img src="grafika/building.png" width="70" /><br /><br />
+
+              Współpracujemy także z naszym Administratorem oferującym tzw.
+              „wirtualne biuro”, polegające na pozwoleniu korzystania z adresu
+              jakie posiada nasze Biuro, jako adresu rejestracyjnego lub/i
+              adresu korespondencyjnego, co w znacznym stopniu ułatwia
+              rejestrację nowych firm.
+            </div>
+          </div>
+        </div>
+
+        <img
+          class="col-sm-2 offset-sm-5 back-img"
+          src="pictures/line.png"
+          width="100"
+          height="30"
+        />
+        <div class="row pb-4 pt-5 pl-4 pr-4 mb-5 mt-5">
+          <div class="col-md-3 col-sm-2 pb-4 pt-4 pl-4 pr-4 ">
+            <h1 class="pb4">Ceny od:</h1>
+          </div>
+          <div class="col-sm-2 prices">
+            <!-- <i class="fas fa-money-bill-wave container-fluid"></i> -->
+            <img src="grafika/coins.png" width="20" />
+            <span class="counter">120</span><span class="zl"> zł</span><br />
+            Księga przychodów i rozchodów
+          </div>
+          <div class="col-sm-2 prices">
+            <!-- <i class="fas fa-money-bill-wave container-fluid"></i> -->
+            <img src="grafika/coins.png" width="20" />
+
+            <span class="counter">500</span><span class="zl"> zł</span><br />
+            Księgi Rachunkowe
+          </div>
+          <div class="col-sm-2 prices">
+            <!-- <i class="fas fa-money-bill-wave container-fluid"></i> -->
+            <img src="grafika/coins.png" width="20" />
+
+            <span class="counter">100</span><span class="zl"> zł</span><br />
+            Ryczałt
+          </div>
+          <div class="col-sm-2 prices">
+            <!-- <i class="fas fa-money-bill-wave container-fluid"></i> -->
+            <img src="grafika/coins.png" width="20" />
+
+            <span class="counter">30</span><span class="zl"> zł</span><br />
+            Obsługa pracownika
+          </div>
+        </div>
+
+        <img
+          class="col-sm-2 offset-sm-5 back-img"
+          src="pictures/line.png"
+          width="100"
+          height="30"
+        />
+
+        <div class="row mt-5">
+          <h1 class="pb4 col-sm-12 container-fluid mb-4">Kontakt</h1>
+
+          <img
+            class="col-sm-2 offset-sm-5 back-img mb-2"
+            src="pictures/line.png"
+            width="100"
+            height="30"
+          />
+          <div
+            class="col-sm-12 parallax-window container-fluid pb-4 pt-4 pl-4 pr-4 mb-5 mt-3"
+            data-parallax="scroll"
+            data-z-index="1"
+            data-image-src="pictures/klient1.jpg"
+          >
+            <div
+              class="col-lg-3 col-md-7 col-sm-9 pb-4 pt-4 pl-1 pr-3 kontakt centered-vertical  rotation onpic zakladki "
+            >
+              <div>
+                <p>
+                  <span class="orange-color">tel: </span>609-734-163<br />
+                  <span class="orange-color">tel: </span> 883-734-163 <br />
+
+                  <span class="orange-color">E-mail: </span>
+                  <a class="mail"> katarzyna.czubala@onet.pl </a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-sm-7 d-md-inline-block container-fluid pb-4 pt-4 pl-4 pr-4 mb-5 zakladki"
+          >
+            <h5 class="pb-4">
+              Biuro Rachunkowe "Dwójka" F.K.U. SIROCCO Katarzyna Czubała
+            </h5>
+            <div class="col-lg-4 d-md-inline-block container-fluid">
+              <p>Adres biura:</p>
+              <p>
+                40-027 Katowice, <br />
+                ul. Francuska 35-37
+              </p>
+              <br /><br />
+              <p>
+                Godziny otwarcia:
+              </p>
+              <p>
+                poniedziałek-piątek<br />
+                8:00 - 16:00 <br />
+                <br /><br />
+                Zapraszamy na bezpłatną konsultację i kawę :)
+              </p>
+            </div>
+            <div
+              class="col-lg-7 iframe-container container-fluid d-md-inline-block"
+            >
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10204.252350649173!2d19.02678!3d50.253406!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb35e49f3f3c97b7f!2sBiuro+rachunkowe+%22Dw%C3%B3jka%22+F.K.U.+Sirocco+Katarzyna+Czuba%C5%82a!5e0!3m2!1spl!2spl!4v1558648765108!5m2!1spl!2spl"
+                frameborder="0"
+                style="border:0"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <h2 class="mt-4 mb-2">Skontaktuj się z nami!</h2>
+            <div class="col-md-5 container-fluid d-md-inline-block">
+              <div id="send_form_status"></div>
+              <form method="post" action="/send_form.php" id="contact_form">
+                <div><label for="name">Imię i nazwisko</label></div>
+                <div>
+                  <input type="text" name="name" id="name" class="formField" />
+                </div>
+                <div><label for="phone">Numer telefonu</label></div>
+                <div>
+                  <input
+                    type="text"
+                    name="phone"
+                    id="phone"
+                    class="formField"
+                  />
+                </div>
+                <div><label for="email">Adres email</label></div>
+                <div>
+                  <input
+                    type="text"
+                    name="email"
+                    id="email"
+                    class="formField"
+                  />
+                </div>
+                <div><label for="message">Treść wiadomości</label></div>
+                <div>
+                  <textarea
+                    name="message"
+                    id="message"
+                    class="formField"
+                  ></textarea>
+                </div>
+                <div><button id="sendBtn">Wyślij</button></div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12 container-fluid"></div>
+        </div>
+        <div class="row">
+          <h3 class="col-sm-12 d-md-inline-block" id="author">
+            <div class="col-sm-2 ml-2 biuroRach d-md-inline-block">
+              Biuro Rachunkowe "Dwójka" F.K.U. Sirocco Katarzyna Czubała
+            </div>
+            <div
+              class="col-sm-2 d-md-inline-block offset-sm-10 mr-2 container-fluid moveRight "
+            >
+              Made by Kaja Czubała
+            </div>
+          </h3>
+        </div>
+      </section>
+
+      <script src="js/bootstrap.min.js"></script>
+    </main>
+  </body>
+</html>
+<style type="text/css"></style>
+<script type="text/javascript">
+  AOS.init({
+    duration: 1200
+  });
+</script>

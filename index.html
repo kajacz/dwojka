@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="pl">
-  <head>
+  <head><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("html").on("submit", "#contact_form", function(e) {
+          e.preventDefault();
+          $("#send_form_status")
+            .html("")
+            .hide();
+          var data = $("#contact_form").serialize();
+          $.post("/send_form.php", data, function(res) {
+            $("#send_form_status")
+              .html(res.msg)
+              .show();
+            if (res.status == 1) {
+              $("#contact_form")[0].reset();
+            }
+          });
+        });
+      });
+    </script>
     <link rel="shortcut icon" type="image/x-icon" href="pictures/icon.png" />
     <link
       href="http://fonts.googleapis.com/css?family=Allura&subset=latin,latin-ext"
@@ -14,7 +33,7 @@
     />
     <meta charset="utf-8" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
     <script src="parallax.js-1.5.0/parallax.js-1.5.0/parallax.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -33,6 +52,7 @@
     <script type="text/javascript" src="numCounter.js"></script>
     <script type="text/javascript" src="form.js"></script>
     <script type="text/javascript" src="moveTo.js"></script>
+    
     <title>Biuro Rachunkowe - DWÓJKA Katarzyna Czubała</title>
   </head>
   <body>
@@ -77,7 +97,7 @@
               </div>
               <img
                 class="d-block w-100"
-                src="pictures/header/33.jpg"
+                src="pictures/header/3.png"
                 id="slide"
                 alt="Third slide"
               />
@@ -369,6 +389,7 @@
 
         <div class="row mt-5">
           <h1 class="pb4 col-sm-12 container-fluid mb-4">Kontakt</h1>
+
           <img
             class="col-sm-2 offset-sm-5 back-img mb-2"
             src="pictures/line.png"
@@ -376,26 +397,45 @@
             height="30"
           />
           <div
+            class="col-sm-12 parallax-window container-fluid pb-4 pt-4 pl-4 pr-4 mb-5 mt-3"
+            data-parallax="scroll"
+            data-z-index="1"
+            data-image-src="pictures/klient1.jpg"
+          >
+            <div
+              class="col-lg-3 col-md-7 col-sm-9 pb-4 pt-4 pl-1 pr-3 kontakt centered-vertical  rotation onpic zakladki "
+            >
+              <div>
+                <p>
+                  <span class="orange-color">tel: </span>609-734-163<br />
+                  <span class="orange-color">tel: </span> 883-734-163 <br />
+
+                  <span class="orange-color">E-mail: </span>
+                  <a class="mail"> katarzyna.czubala@onet.pl </a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
             class="col-sm-7 d-md-inline-block container-fluid pb-4 pt-4 pl-4 pr-4 mb-5 zakladki"
           >
             <h5 class="pb-4">
               Biuro Rachunkowe "Dwójka" F.K.U. SIROCCO Katarzyna Czubała
             </h5>
             <div class="col-lg-4 d-md-inline-block container-fluid">
-              <p>
-                tel: 609-734-163 <br />
-                tel: 883-734-163
-              </p>
-              <p>E-mail: <a class="mail"> katarzyna.czubala@onet.pl </a></p>
+              <p>Adres biura:</p>
               <p>
                 40-027 Katowice, <br />
                 ul. Francuska 35-37
               </p>
+              <br /><br />
               <p>
-                Godziny otwarcia: <br />
+                Godziny otwarcia:
+              </p>
+              <p>
                 poniedziałek-piątek<br />
                 8:00 - 16:00 <br />
-                <br />
+                <br /><br />
                 Zapraszamy na bezpłatną konsultację i kawę :)
               </p>
             </div>
@@ -413,19 +453,20 @@
             <div class="col-md-5 container-fluid d-md-inline-block">
               <div id="send_form_status"></div>
               <form method="post" action="/send_form.php" id="contact_form">
+                <div><label for="name">Imię i nazwisko</label></div>
                 <div>
-                  <label for="message">Treść wiadomości</label>
+                  <input type="text" name="name" id="name" class="formField" />
                 </div>
+                <div><label for="phone">Numer telefonu</label></div>
                 <div>
-                  <textarea
-                    name="message"
-                    id="message"
+                  <input
+                    type="text"
+                    name="phone"
+                    id="phone"
                     class="formField"
-                  ></textarea>
+                  />
                 </div>
-                <div>
-                  <label for="email">Twój adres email</label>
-                </div>
+                <div><label for="email">Adres email</label></div>
                 <div>
                   <input
                     type="text"
@@ -434,9 +475,15 @@
                     class="formField"
                   />
                 </div>
+                <div><label for="message">Treść wiadomości</label></div>
                 <div>
-                  <button class="mt-3" id="sendBtn">Wyślij</button>
+                  <textarea
+                    name="message"
+                    id="message"
+                    class="formField"
+                  ></textarea>
                 </div>
+                <div><button id="sendBtn">Wyślij</button></div>
               </form>
             </div>
           </div>
